@@ -24,3 +24,24 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+
+    // Check if dark mode was enabled before
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+
+    toggleButton.addEventListener("click", function() {
+        body.classList.toggle("dark-mode");
+
+        // Save user preference in localStorage
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("dark-mode", "enabled");
+        } else {
+            localStorage.setItem("dark-mode", "disabled");
+        }
+    });
+});
