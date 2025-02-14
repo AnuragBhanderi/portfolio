@@ -1,8 +1,3 @@
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault()
-    alert("Thank You for your Response.")
-})
-
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
 
@@ -44,4 +39,24 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem("dark-mode", "disabled");
         }
     });
+});
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    const form = this;
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Message sent successfully!");
+            form.reset(); // Clear the form
+        } else {
+            alert("Oops! Something went wrong.");
+        }
+    })
+    .catch(() => alert("Error sending message."));
 });
