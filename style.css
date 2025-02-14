@@ -2,7 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 60px;
+    padding-top: 80px;
     text-align: center;
     background-color: #fff;
     color: #333;
@@ -33,6 +33,7 @@ body {
     background: #333;
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     position: absolute;
     right: 50px;
@@ -56,18 +57,23 @@ body {
 header {
     background-color: #333;
     color: white;
-    padding: 20px;
+    padding: 15px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Navbar Style */
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li {
@@ -78,37 +84,47 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
+
+nav ul li a:hover {
+    color: #ff9800;
+}    
 
 /* Main Content Style */
 section {
-    padding: 100px 20px;
+    padding: 80px 10%;
     margin-top: 60px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 /* Project Style */
 
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    justify-content: center;
 }
 
 .project-card {
-    background: #f4f4f4;;
-    padding: 15px;
-    margin: 10px auto;
-    width: 300px;
+    background: #fff;
     border-radius: 8px;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .project-card img {
     width: 100%;
     border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .project-card h3 {
@@ -137,8 +153,12 @@ section {
 
 
 .project-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 form {
@@ -182,6 +202,10 @@ button:hover {
         width: 95%;
     }
 
+    section {
+        padding: 50px 5%;
+    }
+
     form {
         width: 90%;
     }
@@ -206,6 +230,6 @@ button:hover {
 
 /* Apply fade-in animation to sections */
 section {
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
